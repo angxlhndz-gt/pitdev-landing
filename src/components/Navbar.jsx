@@ -28,7 +28,7 @@ export default function Navbar() {
           </span>
         </a>
 
-        <div className="hidden items-center gap-7 lg:flex">
+        <div className="hidden items-center gap-6 xl:flex">
           {site.navItems.map((item) => (
             <a
               key={item.href}
@@ -40,7 +40,7 @@ export default function Navbar() {
           ))}
         </div>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-3 xl:flex">
           <SocialLinks />
           <a
             href={quoteUrl}
@@ -56,7 +56,7 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setIsOpen((value) => !value)}
-          className="focus-ring grid size-11 place-items-center rounded-lg border border-white/10 bg-white/[0.04] text-white lg:hidden"
+          className="focus-ring grid size-11 place-items-center rounded-lg border border-white/10 bg-white/[0.04] text-white xl:hidden"
           aria-expanded={isOpen}
           aria-controls="mobile-menu"
           aria-label="Abrir menu"
@@ -67,7 +67,7 @@ export default function Navbar() {
       </nav>
 
       {isOpen ? (
-        <div id="mobile-menu" className="border-t border-white/10 bg-pit-black/95 px-4 py-5 lg:hidden">
+        <div id="mobile-menu" className="border-t border-white/10 bg-pit-black/95 px-4 py-5 xl:hidden">
           <div className="mx-auto flex max-w-7xl flex-col gap-3">
             {site.navItems.map((item) => (
               <a

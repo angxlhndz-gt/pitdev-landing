@@ -22,6 +22,7 @@ export const site = {
   navItems: [
     { label: 'Inicio', href: '#inicio' },
     { label: 'Servicios', href: '#servicios' },
+    { label: 'Proyectos', href: '#proyectos' },
     { label: 'Nosotros', href: '#nosotros' },
     { label: 'Contacto', href: '#contacto' },
   ],
@@ -60,6 +61,26 @@ export const site = {
       description:
         'Revisión de conectividad, infraestructura, seguridad básica y recomendaciones para mejorar tu red.',
       icon: Network,
+    },
+  ],
+  projects: [
+    {
+      title: 'UMES Makers Community',
+      type: 'Página web informativa',
+      description:
+        'Página web informativa para una comunidad universitaria maker, enfocada en mostrar eventos, proyectos destacados, información de la comunidad y enlaces oficiales.',
+      href: 'https://umesmakerscommunity.vercel.app/',
+      image: '/clientes/umes-makers.png',
+      imageAlt: 'Captura de la página web UMES Makers Community',
+    },
+    {
+      title: 'Arwyng Official',
+      type: 'Marca personal / DJ',
+      description:
+        'Página web para marca personal/DJ, enfocada en mostrar perfil artístico, eventos, música, contacto y presencia profesional en línea.',
+      href: 'https://arwyng-ofifcial.vercel.app/',
+      image: '/clientes/arwyng-official.png',
+      imageAlt: 'Captura de la página web Arwyng Official',
     },
   ],
   strengths: [
