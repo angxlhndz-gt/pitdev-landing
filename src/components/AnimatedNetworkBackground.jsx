@@ -10,6 +10,8 @@ export default function AnimatedNetworkBackground() {
     let width = 0;
     let height = 0;
     let particles = [];
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let shouldReduceMotion = motionQuery.matches;
 
     const createParticles = () => {
       const count = Math.max(42, Math.min(110, Math.floor((width * height) / 18000)));
@@ -39,8 +41,10 @@ export default function AnimatedNetworkBackground() {
       context.fillRect(0, 0, width, height);
 
       particles.forEach((particle, index) => {
-        particle.x += particle.vx;
-        particle.y += particle.vy;
+        if (!shouldReduceMotion) {
+          particle.x += particle.vx;
+          particle.y += particle.vy;
+        }
 
         if (particle.x < -20) particle.x = width + 20;
         if (particle.x > width + 20) particle.x = -20;
@@ -69,15 +73,34 @@ export default function AnimatedNetworkBackground() {
         context.fill();
       });
 
-      animationFrame = requestAnimationFrame(draw);
+      if (!shouldReduceMotion) {
+        animationFrame = requestAnimationFrame(draw);
+      }
+    };
+
+    const handleResize = () => {
+      resize();
+
+      if (shouldReduceMotion) {
+        draw();
+      }
+    };
+
+    const handleMotionChange = (event) => {
+      shouldReduceMotion = event.matches;
+      cancelAnimationFrame(animationFrame);
+      resize();
+      draw();
     };
 
     resize();
     draw();
-    window.addEventListener('resize', resize);
+    window.addEventListener('resize', handleResize);
+    motionQuery.addEventListener('change', handleMotionChange);
 
     return () => {
-      window.removeEventListener('resize', resize);
+      window.removeEventListener('resize', handleResize);
+      motionQuery.removeEventListener('change', handleMotionChange);
       cancelAnimationFrame(animationFrame);
     };
   }, []);

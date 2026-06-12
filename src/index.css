@@ -18,6 +18,8 @@ body {
   min-width: 320px;
   background:
     radial-gradient(circle at 15% 10%, rgba(57, 255, 136, 0.09), transparent 28rem),
+    radial-gradient(circle at 85% 8%, rgba(84, 230, 255, 0.06), transparent 24rem),
+    radial-gradient(circle at 50% 85%, rgba(57, 255, 136, 0.045), transparent 30rem),
     linear-gradient(180deg, #030604 0%, #05100b 44%, #020403 100%);
 }
 
@@ -75,4 +77,119 @@ textarea {
 
 .focus-ring:focus-visible {
   outline-color: #39ff88;
+}
+
+.laptop-stage {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.laptop-lid {
+  transform-style: preserve-3d;
+}
+
+.laptop-lid::before {
+  position: absolute;
+  inset: 1px;
+  z-index: 1;
+  pointer-events: none;
+  content: '';
+  border-radius: 1.25rem;
+  background: linear-gradient(130deg, rgba(255, 255, 255, 0.16), transparent 34%, transparent 68%, rgba(57, 255, 136, 0.08));
+  mix-blend-mode: screen;
+}
+
+.laptop-base {
+  transform: rotateX(66deg) translateY(-10px);
+  transform-origin: top center;
+  clip-path: polygon(8% 0, 92% 0, 100% 100%, 0 100%);
+  border-radius: 0 0 1.5rem 1.5rem;
+}
+
+.product-orbit-chip {
+  animation: productFloat 7s ease-in-out infinite;
+  animation-delay: var(--float-delay);
+  will-change: translate;
+}
+
+.code-type-line {
+  width: fit-content;
+  max-width: 100%;
+  overflow: hidden;
+  opacity: 0;
+  clip-path: inset(0 100% 0 0);
+  animation: codeReveal 0.86s steps(38, end) forwards;
+  animation-delay: var(--line-delay);
+}
+
+.code-type-line:last-child::after {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.1em;
+  margin-left: 0.2em;
+  vertical-align: -0.14em;
+  content: '';
+  background: currentColor;
+  animation: cursorBlink 1s steps(2, start) infinite;
+  animation-delay: 2.7s;
+}
+
+@keyframes productFloat {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -12px;
+  }
+}
+
+@keyframes codeReveal {
+  0% {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+  }
+  8% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes cursorBlink {
+  0%,
+  48% {
+    opacity: 1;
+  }
+  49%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .code-type-line {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+
+  .product-orbit-chip {
+    animation: none;
+  }
 }

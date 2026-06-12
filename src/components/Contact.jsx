@@ -14,8 +14,8 @@ export default function Contact() {
           Cuéntanos qué necesita tu negocio y te ayudamos a encontrar una solución digital adecuada.
         </SectionHeader>
 
-        <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
-          <div className="rounded-lg border border-white/10 bg-white/[0.035] p-6">
+        <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]" data-stagger>
+          <div className="rounded-lg border border-white/10 bg-white/[0.035] p-6" data-stagger-item>
             <h3 className="text-2xl font-bold text-white">Canales directos</h3>
             <p className="mt-4 leading-8 text-pit-ink/[0.72]">
               Escríbenos para cotizar una página, revisar una idea de sistema o definir una solución para tu negocio.
@@ -43,7 +43,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <form className="rounded-lg border border-pit-neon/20 bg-pit-panel/[0.84] p-5 shadow-panel md:p-7">
+          <form className="rounded-lg border border-pit-neon/20 bg-pit-panel/[0.84] p-5 shadow-panel md:p-7" data-stagger-item>
             <div className="grid gap-4 sm:grid-cols-2">
               <label className="block">
                 <span className="mb-2 block text-sm font-semibold text-pit-ink">Nombre</span>

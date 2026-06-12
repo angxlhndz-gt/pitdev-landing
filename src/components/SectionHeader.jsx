@@ -1,6 +1,6 @@
 export default function SectionHeader({ eyebrow, title, children }) {
   return (
-    <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-14">
+    <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-14" data-animate="up">
       {eyebrow ? (
         <p className="mb-3 text-xs font-semibold uppercase tracking-[0.28em] text-pit-neon">
           {eyebrow}

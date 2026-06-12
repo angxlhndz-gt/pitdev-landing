@@ -7,13 +7,18 @@ import Hero from './components/Hero.jsx';
 import Navbar from './components/Navbar.jsx';
 import Products from './components/Products.jsx';
 import Services from './components/Services.jsx';
+import Storytelling from './components/Storytelling.jsx';
+import useScrollAnimations from './hooks/useScrollAnimations.js';
 
 export default function App() {
+  useScrollAnimations();
+
   return (
     <main className="min-h-screen overflow-hidden bg-pit-black text-white">
       <Navbar />
       <Hero />
       <Services />
+      <Storytelling />
       <Products />
       <Clients />
       <About />

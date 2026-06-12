@@ -65,10 +65,11 @@ export default function Clients() {
           negocios que buscan tener presencia digital profesional.
         </SectionHeader>
 
-        <div className="grid gap-6 lg:grid-cols-2">
+        <div className="grid gap-6 lg:grid-cols-2" data-stagger>
           {site.projects.map((project) => (
             <article
               key={project.title}
+              data-stagger-item
               className="group flex h-full flex-col overflow-hidden rounded-lg border border-white/10 bg-white/[0.035] shadow-panel transition duration-300 hover:-translate-y-1 hover:border-pit-neon/[0.55] hover:bg-pit-neon/[0.055]"
             >
               <ProjectPreview project={project} />
@@ -94,7 +95,10 @@ export default function Clients() {
           ))}
         </div>
 
-        <div className="relative mt-12 overflow-hidden rounded-lg border border-pit-neon/25 bg-pit-panel/[0.88] p-6 text-center shadow-panel sm:p-8 lg:flex lg:items-center lg:justify-between lg:gap-10 lg:p-9 lg:text-left">
+        <div
+          className="relative mt-12 overflow-hidden rounded-lg border border-pit-neon/25 bg-pit-panel/[0.88] p-6 text-center shadow-panel sm:p-8 lg:flex lg:items-center lg:justify-between lg:gap-10 lg:p-9 lg:text-left"
+          data-animate="scale"
+        >
           <div
             className="absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgba(57,255,136,0.16),transparent_18rem),linear-gradient(135deg,rgba(57,255,136,0.09),rgba(84,230,255,0.035)_44%,rgba(3,6,4,0.94))]"
             aria-hidden="true"
